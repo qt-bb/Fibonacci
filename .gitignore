@@ -103,6 +103,6 @@ typings/
 # Ignore all local history of files
 .history
 
-prepos.config
+prepros.config
 
 # End of https://www.gitignore.io/api/node,visualstudiocode

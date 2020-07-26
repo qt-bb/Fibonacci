@@ -1,9 +1,29 @@
-let canvas = document.getElementById('canvas');
+const canvas = document.getElementById('canvas');
 
-let ctx = canvas.getContext('2d');
+const ctx = canvas.getContext('2d');
 
 ctx.canvas.width = window.innerWidth;
 ctx.canvas.height = window.innerHeight;
+
+const mouse = [canvas.width, canvas.height];
+
+const rect = (posX, posY, width, height, color)=>{
+ctx.fillStyle = color;
+
+ctx.fillRect(posX - width/2,
+posY - height/2,
+width,
+height);
+}
+
+function draw() {
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+rect(canvas.width/2, canvas.height/2, 200, 200, '#540000');
+rect(30, 20, 20, 30, '#005400');
+
+window.requestAnimationFrame(draw) ;
+}
 
 window.addEventListener('resize', ()=>{
 ctx.canvas.width = window.innerWidth;
@@ -12,24 +32,7 @@ ctx.canvas.height = window.innerHeight;
 draw();
 });
 
-
-
-
-function draw() {
-let time = Date.now() * 0.0015;
-let x = Math.sin(time) * canvas.width/5 + canvas.width/2 - 100;
-
-
-ctx.fillStyle = 'rgb(22,36, 77)';
-ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-ctx.fillRect(x,
-canvas.height/2-100,
-200,
-200);
-
-window.requestAnimationFrame(draw);
-}
-
-
-window.requestAnimationFrame(draw);
+canvas.addEventListener('mousemove', (e)=>{
+mouse.x = e.pageX;
+mouse.y = e.pageY;
+});

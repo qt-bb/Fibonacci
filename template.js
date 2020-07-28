@@ -22,7 +22,7 @@ function draw() {
 	// And to do this we use clearRect that starts at point (0, 0) and clear area to point (canvas.width, canvas.width)
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-	// Your code and your functions that u want to draw goes gere
+	// Your code and your functions that u want to draw goes here
 	// For example i show how to display rectangle at the center of the screen
 	ctx.fillRect(centerPoint[0] - 100, centerPoint[1] - 100, 200, 200);
 

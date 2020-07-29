@@ -21,10 +21,18 @@ function draw() {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 	const Fi = (1 + Math.sqrt(5)) / 2;
-	let x = centerPoint[0];
-	let y = canvas.height;
-	let r = mouse[0];
-	let angle1 = Math.PI;
+	let x = mouse[0];
+	let y = mouse[1];
+	let m = centerPoint[0] - mouse[0];
+	let n = centerPoint[1] - mouse[1];
+	let r = Math.sqrt(n * n + m * m);
+
+	if (x <= centerPoint[0]) {
+		angle1 = Math.atan(n / m);
+	} else {
+		angle1 = Math.atan(n / m) - Math.PI;
+	}
+
 	let angle2 = angle1 + Math.PI / 2;
 
 	for (let i = 0; i <= 30; i++) {
